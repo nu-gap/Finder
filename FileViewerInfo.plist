@@ -1,10 +1,18 @@
 {
   ApplicationName = FileViewer;
-  ApplicationDescription = "Native GNUstep file viewer";
+  ApplicationDescription = "Native GNUstep file manager";
+  ApplicationRelease = "1.0";
+  Authors = ("Gregory John Casamento <greg.casamento@gmail.com>");
+  URL = "https://github.com/gcasa/Finder";
+  Copyright = "Copyright (C) 2026 Gregory John Casamento and FileViewer contributors";
+  CopyrightDescription = "GNU General Public License version 3 or later; no warranty.";
+  NSHumanReadableCopyright = "Copyright (C) 2026 Gregory John Casamento and FileViewer contributors";
   NSPrincipalClass = NSApplication;
   NSIcon = "FileViewer.png";
   CFBundleIconFile = "FileViewer.png";
   NSExecutable = FileViewer;
   CFBundleIdentifier = "org.gnustep.FileViewer";
+  CFBundleName = FileViewer;
+  CFBundleShortVersionString = "1.0";
   CFBundleVersion = "1.0";
 }
