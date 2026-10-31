@@ -343,7 +343,10 @@
   NSPasteboard *pb = [NSPasteboard pasteboardWithName:NSDragPboard];
   [pb declareTypes:[NSArray arrayWithObject:NSFilenamesPboardType] owner:nil];
   [pb setPropertyList:paths forType:NSFilenamesPboardType];
-  [self dragImage:[owner iconForPath:[paths objectAtIndex:0]]
+  NSImage *image = AUTORELEASE ([[owner iconForPath:[paths objectAtIndex:0]] copy]);
+  [image setScalesWhenResized:YES];
+  [image setSize:NSMakeSize (48, 48)];
+  [self dragImage:image
                at:[self convertPoint:[event locationInWindow] fromView:nil]
            offset:NSZeroSize
             event:event

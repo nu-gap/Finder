@@ -774,7 +774,10 @@ FVSelectionEvent (NSEvent *event, NSUInteger modifiers)
   [pb declareTypes:[NSArray arrayWithObject:NSFilenamesPboardType] owner:nil];
   [pb setPropertyList:paths forType:NSFilenamesPboardType];
   next = [[self window] nextEventMatchingMask:NSLeftMouseDraggedMask];
-  NSImage *image = [[NSWorkspace sharedWorkspace] iconForFile:[paths objectAtIndex:0]];
+  NSImage *image = AUTORELEASE ([[[NSWorkspace sharedWorkspace]
+      iconForFile:[paths objectAtIndex:0]] copy]);
+  [image setScalesWhenResized:YES];
+  [image setSize:NSMakeSize (48, 48)];
   [self dragImage:image
                at:point
            offset:NSZeroSize
